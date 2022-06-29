@@ -1,59 +1,14 @@
 ﻿<form>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-6">
             <label>Medio Utilizado</label>
-        </div>
-        <div class="col-md-4">
             <input class="form-control" type="text" />
         </div>
-        <div class="col-md-1">
-            <button type="submit" class="btn btn-secondary">Buscar</button>
-        </div>
-        <div class="col-md-5">
-            <button type="submit" class="btn btn-primary">Agregar</button>
+        <div class="col-md-6">
+            <br />
+            <label>{resultado de busqueda}</label>
         </div>
     </div>
-    <br />
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-bordered border-primary text-center">
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Medio</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Secuestro</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @*@if (lista > 0)
-                        {
-                        foreach (var item in lista)
-                        {*@
-                    <tr>
-                        <td>001</td>
-                        <td>auto/motocicleta</td>
-                        <td>1</td>
-                        <td>
-                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    @*   }
-                        }
-
-                        else
-                        {
-                        <tr>
-                        <td colspan="20">sin datos</td>
-                        </tr>
-                        }*@
-                </tbody>
-            </table>
-        </div>
-    </div>
-
 </form>
 
 @code {
