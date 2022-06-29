@@ -51,24 +51,320 @@
             <input class="form-control" type="text" />
         </div>
         <div class="col-md-6">
-             <br />
+            <br />
             <span>{resultado de la busqueda del filtro}</span>
         </div>
     </div>
     <br />
     <div class="row text-center">
         <div class="col-md-12">
-            <label><u>Caratulas Secundarias</u></label>
+            <label><u><b>Carátulas Secundarias</b></u></label>
         </div>
     </div>
     <div class="row">
         <div class="col-md-3">
             <span>Lugar:</span>
-            <input class="form-control" type="text" placeholder="Ingrese nombre o código de lugar" />
+            <input class="form-control" type="text" placeholder="Ingrese nombre o código" />
         </div>
         <div class="col-md-3">
             <br />
             <label>{resultado de la busqueda}</label>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                            D.N.P.C
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapse">
+                                            Accidentes de Tránsito
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                        <div class="accordion-body text-center">
+                                            <hr />
+                                            <fieldset class="alert alert-success">
+
+                                                <legend>Lugar</legend>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Urbanos
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Sub-Urbanos
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Rural
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-info">
+                                                <legend>Horario</legend>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>
+                                                            Diurno
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>
+                                                            Nocturno
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-secondary">
+                                                <legend>Victimas</legend>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Leves
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Graves
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Fallecidos
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-warning">
+                                                <legend>Vehículos Intervinientes (Indicar cantidad)</legend>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Particulares
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Carga
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Pasajeros
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Otros
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                            ACC 2018
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                        <div class="accordion-body">
+                                            <hr />
+                                            <fieldset class="alert alert-success text-center">
+                                                <legend>Modo Producción del Hecho</legend>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - Peatón
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - Vehículo
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - Objeto fijo
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - Bicicleta
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                     <div class="col-md-3">
+                                                        <label>
+                                                            Motocicleta - Bicicleta
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Bicicleta sola
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo solo
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - Motocicleta
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Vehículo - T. a sangre
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Motocicleta - Motoc.
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Motocicleta - T. a sangre
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Motocicleta - Peatón
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-info">
+                                                <legend>Horario</legend>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label>
+                                                            Diurno
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>
+                                                            Nocturno
+                                                        </label>&nbsp;
+                                                        <input type="checkbox" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-secondary">
+                                                <legend>Victimas</legend>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Leves
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Graves
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>
+                                                            Fallecidos
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                            <fieldset class="alert alert-warning">
+                                                <legend>Vehículos Intervinientes (Indicar cantidad)</legend>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Particulares
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Carga
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Pasajeros
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>
+                                                            Otros
+                                                        </label>&nbsp;
+                                                        <input class="form-control" type="number" />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -76,3 +372,6 @@
 @code {
 
 }
+<style>
+
+</style>

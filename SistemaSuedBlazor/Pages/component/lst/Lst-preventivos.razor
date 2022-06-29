@@ -8,13 +8,14 @@
     <div class="col-md-5">
         <button class="btn btn-outline-warning" @onclick="navegar">
             <i class="fa fa-plus" aria-hidden="true"></i>
-            Agregar nuevo</button>
+            Agregar nuevo
+        </button>
     </div>
 </div>
 <br />
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-bordered border-primary">
+        <table class="table table-bordered border-primary text-center">
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
@@ -22,16 +23,35 @@
                     <th scope="col">Preventivo n°</th>
                     <th scope="col">Int. Pol.</th>
                     <th scope="col">Fecha Hecho</th>
-                    <th scope="col">Fecha Hecho</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
+                @*@if (lista > 0)
+                    {
+                    foreach (var item in lista)
+                    {*@
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>asdasd</td>
+                    <td>26/06/2022</td>
+                    <td>Comisaria Primera Barranqueras</td>
+                    <td>2022-01</td>
+                    <td>1</td>
+                    <td>24/05/2022</td>
+                    <td>07:00</td>
+                    <td>Hurto</td>
+                    <td>Acción</td>
                 </tr>
+                @*   }
+                    }
+
+                    else
+                    {
+                    <tr>
+                    <td colspan="20">sin datos</td>
+                    </tr>
+                    }*@
             </tbody>
         </table>
     </div>
@@ -43,3 +63,8 @@
         navigate.NavigateTo("abm-preventivo");
     }
 }
+<style>
+    table {
+        padding: 0px;
+    }
+</style>
