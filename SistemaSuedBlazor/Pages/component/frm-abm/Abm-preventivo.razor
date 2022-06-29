@@ -1,126 +1,37 @@
 ﻿@page "/abm-preventivo"
 
-<h3>Panel administrador de Preventivos</h3>
-<hr />
 <div class="container">
-    <div class="tabset">
-        <!-- Tab 1 -->
-        <input type="radio" name="tabset" id="tab1" aria-controls="General" checked>
-        <label for="tab1">General</label>
-        <!-- Tab 2 -->
-        <input type="radio" name="tabset" id="tab2" aria-controls="medio">
-        <label for="tab2">Medio Utilizado</label>
-        <!-- Tab 3 -->
-        <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
-        <label for="tab3">Objeto</label>
+    <h3>Panel administrador de Preventivos</h3>
+    <hr />
 
-        <div class="tab-panels">
-            <section id="General" class="tab-panel">
-               <SistemaSuedBlazor.Pages.component.frm_abm.componentes.General></SistemaSuedBlazor.Pages.component.frm_abm.componentes.General>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">General</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Medio Utilizado</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Objeto</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <br />
+            <section class="tab-panel">
+                <SistemaSuedBlazor.Pages.component.frm_abm.componentes.General></SistemaSuedBlazor.Pages.component.frm_abm.componentes.General>
+            </section>
+            <br />
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <br />
+            <section class="tab-panel">
+                <SistemaSuedBlazor.Pages.component.frm_abm.componentes.MedioUtilizado></SistemaSuedBlazor.Pages.component.frm_abm.componentes.MedioUtilizado>
             </section>
         </div>
-        <div class="tab-panels">
-            <section id="medio" class="tab-panel">
-            <SistemaSuedBlazor.Pages.component.frm_abm.componentes.medioUtilizado></SistemaSuedBlazor.Pages.component.frm_abm.componentes.medioUtilizado>
-            </section>
-        </div>
-        <div class="tab-panels">
-            <section id="objeto" class="tab-panel">
-            </section>
-        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
-
-    <style>
-        .tabset > input[type="radio"] {
-            position: absolute;
-            left: -200vw;
-        }
-
-        .tabset .tab-panel {
-            display: none;
-        }
-
-        .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
-        .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
-        .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
-        .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
-        .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
-        .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
-            display: block;
-        }
-
-        /*
-                                     Styling
-                                    */
-        body {
-            font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
-            color: #333;
-            font-weight: 300;
-        }
-
-        .tabset > label {
-            position: relative;
-            display: inline-block;
-            padding: 15px 15px 25px;
-            border: 1px solid transparent;
-            border-bottom: 0;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-            .tabset > label::after {
-                content: "";
-                position: absolute;
-                left: 15px;
-                bottom: 10px;
-                width: 22px;
-                height: 4px;
-                background: #8d8d8d;
-            }
-
-            .tabset > label:hover,
-            .tabset > input:focus + label {
-                color: #06c;
-            }
-
-                .tabset > label:hover::after,
-                .tabset > input:focus + label::after,
-                .tabset > input:checked + label::after {
-                    background: #06c;
-                }
-
-        .tabset > input:checked + label {
-            border-color: #ccc;
-            border-bottom: 1px solid #fff;
-            margin-bottom: -1px;
-        }
-
-        .tab-panel {
-            padding: 30px 0;
-            border-top: 1px solid #ccc;
-        }
-
-        /*
-                                     Demo purposes only
-                                    */
-        *,
-        *:before,
-        *:after {
-            box-sizing: border-box;
-        }
-
-        body {
-            padding: 0px;
-        }
-
-        .tabset {
-            max-width: 65em;
-        }
-
-    </style>
 </div>
-
-
 @code {
 
 }
