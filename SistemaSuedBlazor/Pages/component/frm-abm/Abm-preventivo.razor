@@ -14,6 +14,9 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Objeto</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#modalidad" type="button" role="tab" aria-controls="modalidad" aria-selected="false">Modalidad</button>
+        </li>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -29,7 +32,18 @@
                 <SistemaSuedBlazor.Pages.component.frm_abm.componentes.MedioUtilizado></SistemaSuedBlazor.Pages.component.frm_abm.componentes.MedioUtilizado>
             </section>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <br />
+            <section class="tab-panel">
+                <SistemaSuedBlazor.Pages.component.frm_abm.componentes.Objeto></SistemaSuedBlazor.Pages.component.frm_abm.componentes.Objeto>
+            </section>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="modalidad" role="tabpanel" aria-labelledby="contact-tab">
+        <br />
+        <section class="tab-panel">
+            <SistemaSuedBlazor.Pages.component.frm_abm.componentes.Modalidad></SistemaSuedBlazor.Pages.component.frm_abm.componentes.Modalidad>
+        </section>
     </div>
 </div>
 @code {
