@@ -1,6 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject IJSRuntime JsRuntime
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">SistemaSuedBlazor</a>
+        <a class="navbar-brand" href="">Estadísticas Policiales</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,13 +12,154 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+            <NavLink class="nav-link" href="">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp; Usuarios
             </NavLink>
         </div>
+
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="/lst-preventivos">
-                <span class="oi oi-plus" aria-hidden="true"></span>Lista de preventivos
+            <NavLink class="nav-link" @onclick="()=>areaExpandida = !areaExpandida">
+                <i class="fa fa-table" aria-hidden="true"></i>&nbsp; Tablas
+            </NavLink>
+        </div>
+        @if (areaExpandida)
+        {
+            <ul style="width: 250px; height: 200px; overflow: auto">
+                <li>
+                    <a href="/lst-preventivos">
+                        Delitos
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Lugares
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Medios Utilizados
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Barrios
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Calles
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Delitos DNCP
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Departamentos
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Localidades
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Modalidades
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Nacionalidades
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Nivel de Estudio
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Ocupaciones
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Provincias
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Sexos
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Unidades
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Vinculos
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Marcas de armas
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Marcas de vehículos
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Modelos de vehículos
+                    </a>
+                </li>
+            </ul>
+        }
+        @*<div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+            </div>*@
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" @onclick="()=>areaPlanillas = !areaPlanillas">
+                <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Planillas
+            </NavLink>
+        </div>
+        @if (areaPlanillas)
+        {
+            <ul>
+                <li>
+                    <a href="/lst-preventivos">
+                        Contravenciones
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Colisiones
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Lesiones leves
+                    </a>
+                </li>
+                <li>
+                    <a href="/lst-preventivos">
+                        Contravenciones (2004)
+                    </a>
+                </li>
+            </ul>
+        }
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span>&nbsp; Preventivos
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -36,4 +179,13 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    private bool areaExpandida;
+    private bool areaPlanillas;
 }
+<style>
+    a {
+        text-decoration: none;
+        color: white
+    }
+</style>

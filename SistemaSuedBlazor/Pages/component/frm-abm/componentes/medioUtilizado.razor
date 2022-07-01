@@ -1,22 +1,43 @@
 ﻿<form>
     <div class="row">
-        <div class="col-md-2">
-            <label>Medio Utilizado</label>
-        </div>
-        <div class="col-md-5">
-            <input class="form-control" type="text" />
-        </div>
-        <div class="col-md-1">
-            <button class="btn btn-primary">Buscar</button>
-        </div>
-        <div class="col-md-1">
-            <button class="btn btn-secondary">Guardar</button>
-        </div>
-        <div class="col-md-3">
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <label> <b> Medio Utilizado</b></label>
+                    <div class="col-md-5">
+                        <select class="form-control" name="cars" id="cars">
+                            <option value="Arma de fuego">Camión</option>
+                            <option value="saab">Arma blanca</option>
+                            <option value="mercedes">Auto</option>
+                            <option value="audi">Motocicleta</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-2">
+                        <label><b> Secuestro</b></label>
+                        <input class="form-control-sm" type="checkbox" />
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-4">
+                        <label><b>Fecha</b></label>
+                        <input class="form-control-sm" type="date" />
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-1">
+                        <button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="custom-tooltip"
+                                title="Guardar">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     <br />
-    <div class="row"></div>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-bordered border-primary text-center">
