@@ -1,42 +1,35 @@
-﻿<form>
-    <div class="row">
-        <table>
-            <tr>
-                <td>
-                    <label> <b> Medio Utilizado</b></label>
-                    <div class="col-md-5">
-                        <select class="form-control" name="cars" id="cars">
-                            <option value="Arma de fuego">Camión</option>
-                            <option value="saab">Arma blanca</option>
-                            <option value="mercedes">Auto</option>
-                            <option value="audi">Motocicleta</option>
-                        </select>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-2">
-                        <label><b> Secuestro</b></label>
-                        <input class="form-control-sm" type="checkbox" />
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-4">
-                        <label><b>Fecha</b></label>
-                        <input class="form-control-sm" type="date" />
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-1">
-                        <button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                title="Guardar">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+﻿@using SistemaSuedBlazor.Models
+<div class="container-fluid">
+    <EditForm Model="objMod" OnSubmit="addRow">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Modalidad</label>&nbsp;
+                <InputNumber id="codigo" name="codigo" class="form-control" @bind-Value="objMod.codigo" required />
+            </div>
+            <div class="col-sm-5">
+                <label>Descripción</label>&nbsp;
+                <InputText id="sec" name="sec" class="form-control" @bind-Value="objMod.sec" required />
+            </div>
+            <div class="col-sm-3">
+                <label>Secuestro</label>
+                <br />
+                <InputCheckbox id="secuestro" name="secuestro" @bind-Value="objMod.secuestro" required />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-outline-primary"
+                        type="submit"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip"
+                        title="Guardar">
+                    <i class="fa fa-plus"></i>&nbsp; Agregar a tabla
+                </button>
+            </div>
+        </div>
+    </EditForm>
     <br />
     <div class="row">
         <div class="col-md-12">
@@ -44,43 +37,85 @@
                 <thead class="table-success">
                     <tr>
                         <th scope="col">Medio</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Descripción</th>
                         <th scope="col">Secuestro</th>
                         <th scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @*@if (lista > 0)
+                    @if (list != null)
+                    {
+                        foreach (var item in list)
                         {
-                        foreach (var item in lista)
-                        {*@
-                    <tr>
-                        <td>26/06/2022</td>
-                        <td>Comisaria Primera Barranqueras</td>
-                        <td>2022-01</td>
-                        <td>
-                            <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
+                            <tr>
+                                <td>@item.codigo</td>
+                                <td>@item.sec</td>
+                                <td>@item.secuestro</td>
+                                <td>
+                                    <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
-                                    title="Eliminar">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    @*   }
+                                    title="Eliminar"
+                                    @onclick="async()=>{deleteRow(item);}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         }
-
-                        else
-                        {
-                        <tr>
-                        <td colspan="20">sin datos</td>
+                    }
+                    @if (list.Count() == 0)
+                    {
+                        <tr class="alert alert-info">
+                            <td colspan="20"><b>Sin Datos</b></td>
                         </tr>
-                        }*@
+                    }
                 </tbody>
             </table>
         </div>
     </div>
-</form>
+</div>
+<div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-outline-info"
+                type="submit"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                title="Guardar">
+            <i class="fas fa-arrow-circle-right"></i>&nbsp; Siguiente
+        </button>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-outline-danger"
+                type="submit"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                title="Guardar">
+            <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+        </button>
+    </div>
+</div>
 
 @code {
+    private PrevMedio objMod = new PrevMedio();
+    List<PrevMedio> list = new List<PrevMedio>();
+    public PrevMedio[] obj;
 
+    private void addRow()
+    {
+        this.list.Add(objMod);
+        objMod = new PrevMedio();
+    }
+
+    private void deleteRow(PrevMedio objMod)
+    {
+        var index = this.list.IndexOf(objMod);
+        if (index != -1)
+        {
+            this.list?.RemoveAt(index);
+        }
+    }
 }

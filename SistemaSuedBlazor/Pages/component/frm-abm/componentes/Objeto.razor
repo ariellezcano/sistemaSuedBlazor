@@ -61,7 +61,7 @@
                 <tbody>
                     @if (list != null)
                     {
-                        foreach (var item in obj)
+                        foreach (var item in list)
                         {
                             <tr>
                                 <td>@item.objeto</td>
@@ -72,31 +72,51 @@
                                     <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
                                     title="Eliminar"
-                                    @onclick="async()=>{deleteRow(item);}"
-                                    >
+                                    @onclick="async()=>{deleteRow(item);}">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>
                             </tr>
                         }
                     }
-
-                    else
+                    @if (list.Count() == 0)
                     {
                         <tr class="alert alert-info">
-                            <td colspan="20"><b> Sin Datos </b></td>
+                            <td colspan="20"><b>Sin Datos</b></td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
-
+</div>
+<div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-outline-info"
+                type="submit"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                title="Guardar">
+            <i class="fas fa-arrow-circle-right"></i>&nbsp; Siguiente
+        </button>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-outline-danger"
+                type="submit"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                title="Guardar">
+            <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+        </button>
+    </div>
 </div>
 
 @code {
-
-
     private ObjetoModel objMod = new ObjetoModel();
     List<ObjetoModel> list = new List<ObjetoModel>();
     public ObjetoModel[] obj;
@@ -112,9 +132,8 @@
         var index = this.list.IndexOf(objMod);
         if (index != -1)
         {
-            this.list.RemoveAt(index);
+            this.list?.RemoveAt(index);
         }
-
     }
 
 }
