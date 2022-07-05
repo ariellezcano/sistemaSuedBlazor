@@ -1,20 +1,50 @@
-﻿<form>
-    <div class="row">
-        <div class="col-md-2">
-            <label>Buscar Objeto</label>
+﻿@using SistemaSuedBlazor.Models
+
+<div class="container-fluid">
+    <EditForm Model="objMod" OnSubmit="addRow">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Objeto</label>&nbsp;
+                <InputText id="objeto" name="objeto" class="form-control" @bind-Value="objMod.objeto" required />
+            </div>
+            <div class="col-sm-4">
+                <label>Cantidad</label>&nbsp;
+                <InputNumber id="cantidad" name="cantidad" class="form-control" @bind-Value="objMod.cantidad" type="number" required />
+            </div>
+            <div class="col-sm-4">
+                <label>Valor</label>&nbsp;
+                <InputNumber id="valor" name="valor" class="form-control" @bind-Value="objMod.valor" type="text" required />
+            </div>
         </div>
-        <div class="col-md-5">
-            <input class="form-control" type="text" placeholder="Ingrese código o descripción"/>
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Secuestro</label>&nbsp;
+                <InputCheckbox id="secuestro" name="secuestro" @bind-Value="objMod.secuestro" class="form-control-sm" type="checkbox" required />
+            </div>
+            <div class="col-sm-4">
+                <label>Fecha</label>&nbsp;
+                <InputDate id="fecha" name="fecha" @bind-Value="objMod.fecha" class="form-control" required />
+            </div>
+            <div class="col-sm-4">
+                <label>Cantidad</label>&nbsp;
+                <InputNumber id="cantidadSec" name="cantidadSec" @bind-Value="objMod.cantidadSec" class="form-control" type="number" required />
+            </div>
         </div>
-        <div class="col-md-1">
-            <button class="btn btn-primary">Buscar</button>
+        <br />
+        <div class="row">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-outline-primary"
+                        type="submit"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-custom-class="custom-tooltip"
+                        title="Guardar">
+                    <i class="fa fa-plus"></i>&nbsp; Agregar a tabla
+                </button>
+            </div>
         </div>
-        <div class="col-md-1">
-            <button class="btn btn-secondary">Guardar</button>
-        </div>
-        <div class="col-md-3">
-        </div>
-    </div>
+    </EditForm>
     <br />
     <div class="row">
         <div class="col-md-12">
@@ -25,43 +55,66 @@
                         <th scope="col">Descripcion</th>
                         <th scope="col">Secuestro</th>
                         <th scope="col">Valor</th>
-                        <th scope="col">Nordem</th>
                         <th scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @*@if (lista > 0)
+                    @if (list != null)
+                    {
+                        foreach (var item in obj)
                         {
-                        foreach (var item in lista)
-                        {*@
-                    <tr>
-                        <td>1001</td>
-                        <td>Pistola</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>90007</td>
-                        <td>
-                            <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
+                            <tr>
+                                <td>@item.objeto</td>
+                                <td>@item.cantidad</td>
+                                <td>@item.secuestro</td>
+                                <td>@item.valor</td>
+                                <td>
+                                    <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
-                                    title="Eliminar">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    @*   }
+                                    title="Eliminar"
+                                    @onclick="async()=>{deleteRow(item);}"
+                                    >
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         }
+                    }
 
-                        else
-                        {
-                        <tr>
-                        <td colspan="20">sin datos</td>
+                    else
+                    {
+                        <tr class="alert alert-info">
+                            <td colspan="20"><b> Sin Datos </b></td>
                         </tr>
-                        }*@
+                    }
                 </tbody>
             </table>
         </div>
     </div>
-</form>
+
+</div>
+
 @code {
+
+
+    private ObjetoModel objMod = new ObjetoModel();
+    List<ObjetoModel> list = new List<ObjetoModel>();
+    public ObjetoModel[] obj;
+
+    private void addRow()
+    {
+        this.list.Add(objMod);
+        objMod = new ObjetoModel();
+    }
+
+    private void deleteRow(ObjetoModel objMod)
+    {
+        var index = this.list.IndexOf(objMod);
+        if (index != -1)
+        {
+            this.list.RemoveAt(index);
+        }
+
+    }
 
 }
