@@ -20,6 +20,9 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#victimas" type="button" role="tab" aria-controls="victimas" aria-selected="false">Víctimas</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#inculpados" type="button" role="tab" aria-controls="inculpados" aria-selected="false">Inculpados</button>
+        </li>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -51,6 +54,12 @@
             <br />
             <section class="tab-panel">
                 <SistemaSuedBlazor.Pages.component.frm_abm.componentes.Victimas></SistemaSuedBlazor.Pages.component.frm_abm.componentes.Victimas>
+            </section>
+        </div>
+        <div class="tab-pane fade" id="inculpados" role="tabpanel" aria-labelledby="contact-tab">
+            <br />
+            <section class="tab-panel">
+                <SistemaSuedBlazor.Pages.component.frm_abm.componentes.Inculpados></SistemaSuedBlazor.Pages.component.frm_abm.componentes.Inculpados>
             </section>
         </div>
     </div>
