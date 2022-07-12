@@ -9,13 +9,13 @@ namespace SistemaSuedBlazor.Models
         [Key]
         public int id { get; set; }
         public int norden { get; set; }
-        public int sexo { get; set; }
+        public string sexo { get; set; }
         public int edad { get; set; }
-        public int nacionalidad { get; set; }
-        public int estudios { get; set; }
-        public int ocupacion { get; set; }
-        public int vinculo { get; set; }
-        public int detenido { get; set; }
+        public string nacionalidad { get; set; }
+        public string estudios { get; set; }
+        public string ocupacion { get; set; }
+        public string vinculo { get; set; }
+        public bool detenido { get; set; }
         public DateTime fechaD { get; set; }
         public string nombre { get; set; }
         public string alias { get; set; }
@@ -24,7 +24,7 @@ namespace SistemaSuedBlazor.Models
         public int calle { get; set; }
         public int nroDir { get; set; }
         public string adicional { get; set; }
-        public int localidad { get; set; }
+        public string localidad { get; set; }
         public int clase { get; set; }
         public int vehiculo { get; set; }
 
@@ -40,6 +40,8 @@ namespace SistemaSuedBlazor.Models
         public virtual Vinculo? vinculoNavigation { get; set; }
         [ForeignKey("calle")]
         public virtual Calles? calleNavigation { get; set; }
+        [ForeignKey("localidad")]
+        public virtual Localidad? localidadNavigation { get; set; }
 
 
     }

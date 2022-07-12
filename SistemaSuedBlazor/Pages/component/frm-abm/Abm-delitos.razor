@@ -1,0 +1,96 @@
+﻿@page "/abm-delitos"
+@inject NavigationManager navigate
+
+@using SistemaSuedBlazor.Models
+
+<div class="container-fluid">
+    <h3><b><u>Panel alta de Delitos</u></b></h3>
+    <hr />
+    <div class="row">
+        <EditForm Model="objMod" OnSubmit="guardar">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Título</label>&nbsp;
+                    <InputNumber id="codTitulo" name="codTitulo" class="form-control" @bind-Value="objMod.codTitulo" required />
+                </div>
+                <div class="col-sm-6">
+                    <label>Capítulo</label>&nbsp;
+                    <InputNumber id="codCapitulo" name="codCapitulo" class="form-control" @bind-Value="objMod.codCapitulo" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Tipo</label>&nbsp;
+                    <InputNumber id="codTipo" name="codTipo" class="form-control" @bind-Value="objMod.codTipo" required />
+                </div>
+                <div class="col-sm-6">
+                    <label>Sub-Tipo</label>&nbsp;
+                    <InputNumber id="codSubTipo" name="codSubTipo" class="form-control" @bind-Value="objMod.codSubTipo" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Descripción</label>&nbsp;
+                    <InputTextArea id="descripcion" name="descripcion" class="form-control" @bind-Value="objMod.descripcion" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Artículo</label>&nbsp;
+                    <InputText id="codigo" name="codigo" class="form-control" @bind-Value="objMod.articulo" required />
+                </div>
+                <div class="col-sm-6">
+                    <label>D.N.P.C.</label>&nbsp;
+                    <InputNumber id="dnpc" name="dnpc" class="form-control" @bind-Value="objMod.dnpc" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Imputable?</label>&nbsp;
+                    <InputCheckbox id="imputable" name="imputable" class="form-control-sm" @bind-Value="objMod.imputable" />
+                </div>
+            </div>
+            <hr />
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-info"
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Guardar">
+                        <i class="fas fa-arrow-circle-right"></i>&nbsp; Guardar
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-danger"
+                            @onclick="back"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Volver al listado">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </EditForm>
+    </div>
+</div>
+
+
+
+@code {
+    private Delitos objMod = new Delitos();
+
+    private void guardar() { }
+
+    private void back()
+    {
+        navigate.NavigateTo("/lst-delitos");
+    }
+}

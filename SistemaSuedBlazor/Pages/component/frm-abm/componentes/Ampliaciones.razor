@@ -2,45 +2,22 @@
 <div class="container-fluid">
     <EditForm Model="objMod" OnSubmit="addRow">
         <div class="row">
-            <div class="col-sm-4">
-                <label>Sexo</label>&nbsp;
-                <InputText id="sexo" name="sexo" class="form-control" @bind-Value="objMod.sexo" required />
-            </div>
-            <div class="col-sm-4">
-                <label>Edad</label>&nbsp;
-                <InputNumber id="edad" name="edad" class="form-control" @bind-Value="objMod.edad" required />
-            </div>
-            <div class="col-sm-4">
-                <label>Nacionalidad</label>&nbsp;
-                <InputText id="nacionalidad" name="nacionalidad" class="form-control" @bind-Value="objMod.nacionalidad" required />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <label>Estudios</label>&nbsp;
-                <InputText id="estudios" name="estudios" class="form-control" @bind-Value="objMod.estudios" required />
-            </div>
-            <div class="col-sm-4">
-                <label>Ocupacion</label>&nbsp;
-                <InputText id="ocupacion" name="ocupacion" class="form-control" @bind-Value="objMod.ocupacion" required />
-            </div>
-            <div class="col-sm-4">
-                <label>Vinculo</label>&nbsp;
-                <InputText id="estudios" name="estudios" class="form-control" @bind-Value="objMod.estudios" required />
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <label>Detenido</label>&nbsp;
-                <InputCheckbox id="detenido" name="detenido" class="form-control-sm" @bind-Value="objMod.detenido" required></InputCheckbox>
-            </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <label>Fecha</label>&nbsp;
-                <InputDate id="detenido" name="detenido" class="form-control-sm" @bind-Value="objMod.fechaD" required></InputDate>
+                <InputDate id="descripcion" name="descripcion" class="form-control" @bind-Value="objMod.fecha" required />
+            </div>
+            <div class="col-sm-6">
+                <label>Nota n°</label>&nbsp;
+                <InputText id="codigo" name="codigo" class="form-control" @bind-Value="objMod.nota" required />
             </div>
         </div>
-
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Observaciones</label>&nbsp;
+                <InputTextArea id="observaciones" name="observaciones" class="form-control" @bind-Value="objMod.obs" />
+            </div>
+        </div>
         <br />
         <div class="row">
             <div class="d-grid gap-2 col-6 mx-auto">
@@ -61,10 +38,9 @@
             <table class="table table-bordered border-primary text-center">
                 <thead class="table-success">
                     <tr>
-                        <th scope="col">Sexo</th>
-                        <th scope="col">Edad</th>
-                        <th scope="col">Nacionalidad</th>
-                        <th scope="col">Estudios</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Nota</th>
+                        <th scope="col">Unidad</th>
                         <th scope="col">Acción</th>
                     </tr>
                 </thead>
@@ -74,10 +50,9 @@
                         foreach (var item in list)
                         {
                             <tr>
-                                <td>@item.sexo</td>
-                                <td>@item.edad</td>
-                                <td>@item.nacionalidad</td>
-                                <td>@item.estudios</td>
+                                <td>@item.fecha</td>
+                                <td>@item.nota</td>
+                                <td>@item.unidad</td>
                                 <td>
                                     <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-custom-class="custom-tooltip"
@@ -124,19 +99,20 @@
             <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
         </button>
     </div>
+    <br />
 </div>
-<br />
+
 @code {
-    private Previncu objMod = new Previncu();
-    List<Previncu> list = new List<Previncu>();
+    private PreAmpli objMod = new PreAmpli();
+    List<PreAmpli> list = new List<PreAmpli>();
 
     private void addRow()
     {
         this.list.Add(objMod);
-        objMod = new Previncu();
+        objMod = new PreAmpli();
     }
 
-    private void deleteRow(Previncu objMod)
+    private void deleteRow(PreAmpli objMod)
     {
         var index = this.list.IndexOf(objMod);
         if (index != -1)
@@ -145,4 +121,3 @@
         }
     }
     }
-
