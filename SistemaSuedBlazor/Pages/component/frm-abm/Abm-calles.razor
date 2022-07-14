@@ -1,0 +1,71 @@
+﻿@page "/abm-calles"
+@inject NavigationManager navigate
+
+@using SistemaSuedBlazor.Models
+
+<div class="container-fluid">
+    <h3><b><u>Panel alta/modificacion de Calles</u></b></h3>
+    <hr />
+    <div class="row">
+        <EditForm Model="objMod" OnSubmit="guardar">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Código</label>&nbsp;
+                    <InputNumber id="codigo" name="codigo" class="form-control" @bind-Value="objMod.codigo" required />
+                </div>
+                <div class="col-sm-6">
+                    <label>Nombre</label>&nbsp;
+                    <InputText id="nombre" name="nombre" class="form-control" @bind-Value="objMod.nombre" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Barrio</label>&nbsp;
+                    <InputNumber id="nombre" name="nombre" class="form-control" @bind-Value="objMod.barrio" required />
+                </div>
+            </div>
+            <hr />
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-info"
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Guardar">
+                        <i class="fas fa-arrow-circle-right"></i>&nbsp; Guardar
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-danger"
+                            @onclick="back"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Volver al listado">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </EditForm>
+    </div>
+</div>
+
+
+
+@code {
+    private Calles objMod = new Calles();
+
+    private void guardar() { }
+
+    private void back()
+    {
+        navigate.NavigateTo("/lst-calles");
+    }
+}
+

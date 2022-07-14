@@ -1,0 +1,70 @@
+﻿@page "/abm-medios"
+@inject NavigationManager navigate
+
+@using SistemaSuedBlazor.Models
+
+<div class="container-fluid">
+    <h3><b><u>Panel alta de Medios</u></b></h3>
+    <hr />
+    <div class="row">
+        <EditForm Model="objMod" OnSubmit="guardar">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Medio</label>&nbsp;
+                    <InputNumber id="codMedio" name="codMedio" class="form-control" @bind-Value="objMod.codMedio" required />
+                </div>
+                <div class="col-sm-6">
+                    <label>Tipo</label>&nbsp;
+                    <InputNumber id="codTipo" name="codTipo" class="form-control" @bind-Value="objMod.codTipo" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Descripción</label>&nbsp;
+                    <InputTextArea id="descripcion" name="descripcion" class="form-control" @bind-Value="objMod.descripcion" required />
+                </div>
+            </div>
+            <hr />
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-info"
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Guardar">
+                        <i class="fas fa-arrow-circle-right"></i>&nbsp; Guardar
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-danger"
+                            @onclick="back"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Volver al listado">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </EditForm>
+    </div>
+</div>
+
+
+
+@code {
+    private Medio objMod = new Medio();
+
+    private void guardar() { }
+
+    private void back()
+    {
+        navigate.NavigateTo("/lst-medios");
+    }
+}

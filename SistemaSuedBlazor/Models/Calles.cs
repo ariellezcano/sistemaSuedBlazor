@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaSuedBlazor.Models
 {
-    [Table("")]
+    [Table("calles")]
     public class Calles
     {
         [Key]
@@ -13,7 +13,7 @@ namespace SistemaSuedBlazor.Models
         public int barrio { get; set; }
 
         [ForeignKey("barrio")]
-        public virtual Barrios? calleNavigation { get; set; }
+        public virtual Barrios? barrioNavigation { get; set; }
 
     }
 }

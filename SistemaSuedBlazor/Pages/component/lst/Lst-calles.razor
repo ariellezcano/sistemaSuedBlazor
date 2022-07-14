@@ -1,9 +1,9 @@
-﻿@page "/lst-delitos"
+﻿@page "/lst-calles"
 @inject NavigationManager navigate
 
 <div class="row">
     <div class="col-md-5">
-        <h3>Listado de Delitos</h3>
+        <h3>Listado de Barrios</h3>
     </div>
     <div class="col-md-5">
         <button class="btn btn-outline-warning" @onclick="navegar">
@@ -19,10 +19,8 @@
             <thead class="table-success">
                 <tr>
                     <th scope="col">Código</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Artículo</th>
-                    <th scope="col">D.N.P.C</th>
-                    <th scope="col">D.N.P.C Descripción</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Barrio</th>
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
@@ -32,11 +30,9 @@
                     foreach (var item in lista)
                     {*@
                 <tr>
-                    <td>01/06</td>
-                    <td>Abandono de Persona</td>
-                    <td>Artículo</td>
-                    <td>8.0</td>
-                    <td>Otros delitos contra la persona</td>
+                    <td>9794</td>
+                    <td>Firpo 800</td>
+                    <td>La Liguria</td>
                     <td>Acción</td>
                 </tr>
                 @*   }
@@ -56,7 +52,7 @@
 @code {
     private void navegar()
     {
-        navigate.NavigateTo("abm-delitos");
+        navigate.NavigateTo("/abm-calles");
     }
 }
 <style>
