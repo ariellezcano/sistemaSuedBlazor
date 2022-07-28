@@ -1,0 +1,144 @@
+﻿@page "/abm-contravenciones"
+@inject NavigationManager navigate
+
+@using SistemaSuedBlazor.Models
+
+<div class="container-fluid">
+    <h3><b><u>Panel alta/modificación de Contravenciones</u></b></h3>
+    <hr />
+    <div class="row">
+        <EditForm Model="objMod" OnSubmit="guardar">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Fecha</label>&nbsp;
+                    <InputDate name="periodo" @bind-Value="objMod.periodo" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label>Hora</label>&nbsp;
+                    <input type="time" id="nombre" name="nombre" class="form-control" @bind="objMod.hora" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Expediente</label>&nbsp;
+                    <InputText id="nombre" name="nombre" class="form-control" @bind-Value="objMod.expediente" />
+                </div>
+                <div class="col-md-6">
+                    <label>Unidad</label>&nbsp;
+                    <input type="text" id="nombre" name="nombre" class="form-control" @bind="objMod.hora" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Total detenidos</label>&nbsp;
+                    <input type="text" id="nombre" name="nombre" class="form-control" @bind="objMod.total" />
+                </div>
+                <div class="col-md-6">
+                    <label>Articulado</label>&nbsp;
+                    <input type="text" id="nombre" name="nombre" class="form-control" @bind="objMod.articulo" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Seleccionar si hubo personas detenidas</label> &nbsp;
+                    <input type="checkbox" class="form-control-sm" @bind="objMod.detenidos" />
+                </div>
+            </div>
+            <br />
+            @if (objMod.detenidos)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header alert alert-success">
+                                Personas Detenidas
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <label>Apellido</label>&nbsp;
+                                        <input type="text" id="apellido" name="apellido" class="form-control" @bind="objMod.apellido" />
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label>Nombre</label>&nbsp;
+                                        <input type="text" id="nombre" name="nombre" class="form-control" @bind="objMod.nombre" />
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <label>Nro. D.N.I</label>&nbsp;
+                                        <input type="number" id="dni" name="dni" class="form-control" @bind="objMod.dni" />
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label>Edad</label>&nbsp;
+                                        <input type="text" id="edad" name="edad" class="form-control" @bind="objMod.edad" />
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <br>
+                                        <select class="form-select" @bind="objMod.sexo" aria-label="Default select example">
+                                            <option selected>Seleccione Género</option>
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Femenino</option>
+                                            <option value="O">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                <br />
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            <hr />
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-info"
+                            type="submit"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Guardar">
+                        <i class="fas fa-arrow-circle-right"></i>&nbsp; Guardar
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-outline-danger"
+                            @onclick="back"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            data-bs-custom-class="custom-tooltip"
+                            title="Volver al listado">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </EditForm>
+    </div>
+</div>
+
+
+
+@code {
+    private Contravenciones objMod = new Contravenciones();
+
+    private void guardar() { }
+
+    private void back()
+    {
+        navigate.NavigateTo("/lst-contravenciones");
+    }
+}

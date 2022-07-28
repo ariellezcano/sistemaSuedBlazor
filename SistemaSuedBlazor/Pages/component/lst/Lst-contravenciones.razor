@@ -1,0 +1,66 @@
+﻿@page "/lst-contravenciones"
+@inject NavigationManager navigate
+
+<div class="row">
+    <div class="col-md-5">
+        <h3>Listado de Contravenciones</h3>
+    </div>
+    <div class="col-md-5">
+        <button class="btn btn-outline-warning" @onclick="navegar">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Agregar nuevo
+        </button>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered border-primary text-center">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Cod. Unidad</th>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Denominación</th>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@if (lista > 0)
+                    {
+                    foreach (var item in lista)
+                    {*@
+                <tr>
+                    <td>62/0</td>
+                    <td>01/1943</td>
+                    <td>1</td>
+                    <td>Comisaria Primera Barranqueras</td>
+                    <td>01/1943</td>
+                    <td>Acción</td>
+                </tr>
+                @*   }
+                    }
+
+                    else
+                    {
+                    <tr>
+                    <td colspan="20">sin datos</td>
+                    </tr>
+                    }*@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private void navegar()
+    {
+        navigate.NavigateTo("/abm-contravenciones");
+    }
+}
+<style>
+    table {
+        padding: 0px;
+    }
+</style>
