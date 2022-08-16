@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Amazon.JSII.Runtime" Version="1.64.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.4" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Pages\component\filtros\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

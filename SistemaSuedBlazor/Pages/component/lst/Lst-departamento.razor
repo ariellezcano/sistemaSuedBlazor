@@ -1,0 +1,48 @@
+﻿@page "/lst-departamento"
+@inject NavigationManager navigate
+
+<div class="row">
+    <div class="col-md-5">
+        <h3>Listado de Barrios</h3>
+    </div>
+    <div class="col-md-5">
+        <button class="btn btn-outline-warning" @onclick="navegar">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Agregar nuevo
+        </button>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered border-primary text-center">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@if (lista > 0)
+                    {
+                    foreach (var item in lista)
+                    {*@
+                <tr>
+                    <td>01</td>
+                    <td>San Fernando</td>
+                    <td>Acción</td>
+                </tr>
+                @*   }
+                    }
+
+                    else
+                    {
+                    <tr>
+                    <td colspan="20">sin datos</td>
+                    </tr>
+                    }*@
+            </tbody>
+        </table>
+    </div>
+</div>
