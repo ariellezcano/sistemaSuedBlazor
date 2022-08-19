@@ -11,39 +11,36 @@ namespace SistemaSuedBlazor.Services
 
         static string ruta = "Departamento";
 
-        public static async Task<List<Departamento>> LstDepartamentos(string dni)
+        public static async Task<List<Departamento>> LstDepartamentos(string criterio)
         {
 
-            if (dni != null && dni != "")
+            if (criterio != null && criterio != "")
             {
-                api = Utils.URL + ruta + "/finDni/" + dni;
+                api = Utils.URL + ruta;
             }
             else
             {
                 api = Utils.URL + ruta;
             }
 
-            List<Departamento> p = new List<Departamento>();
+            List<Departamento> items = new List<Departamento>();
 
             using (var http = new HttpClient())
             {
                 var response = await http.GetStringAsync(api);
-                Result res = new Result();
-                var = JsonConvert.DeserializeObject<Departamento>(response); ;
-                //Respuesta<Departamento> r = JsonConvert.DeserializeObject<Respuesta<Departamento>>(response);
+                Result<Departamento> res = JsonConvert.DeserializeObject<Result<Departamento>>(response); ;
 
                 //  Paginate pa = r.data.paginate;
-                if (r.code == "200")
+                if (res.code == "200")
                 {
-                    p = r.data.docs;
+                    items = res.data.docs;
                 }
                 else
                 {
-                    p = new List<Departamento>();
+                    items = new List<Departamento>();
                 }
             }
-            // 
-            return p;
+            return items;
 
         }
 

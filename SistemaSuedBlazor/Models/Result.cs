@@ -1,13 +1,10 @@
 ﻿namespace SistemaSuedBlazor.Models
 {
-    public class Result
+    public class Result<T>
     {
-        public object dato { get; set; }
-        public object[] data { get; set; };
-        public int totalPaginas { get; set; };
-        public int totalRegistros { get; set; };
-        public string code { get; set; };
-        public string message;
-        public string error;
+        public string code { get; set; }
+        public string message { get; set; }
+        public string error { get; set; }
+        public Docs<T> data { get; set; }
     }
 }
