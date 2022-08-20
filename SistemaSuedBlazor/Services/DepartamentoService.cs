@@ -9,7 +9,7 @@ namespace SistemaSuedBlazor.Services
 
         static string api;
 
-        static string ruta = "Departamento";
+        static string ruta = "Departamento/";
 
         public static async Task<List<Departamento>> LstDepartamentos(string criterio)
         {
@@ -20,7 +20,7 @@ namespace SistemaSuedBlazor.Services
             }
             else
             {
-                api = Utils.URL + ruta;
+                api = Utils.URL + ruta+ "/paginate/1,10";
             }
 
             List<Departamento> items = new List<Departamento>();
@@ -28,12 +28,11 @@ namespace SistemaSuedBlazor.Services
             using (var http = new HttpClient())
             {
                 var response = await http.GetStringAsync(api);
-                Result<Departamento> res = JsonConvert.DeserializeObject<Result<Departamento>>(response); ;
 
-                //  Paginate pa = r.data.paginate;
+                Result<Departamento> res = JsonConvert.DeserializeObject<Result<Departamento>>(response);
                 if (res.code == "200")
                 {
-                    items = res.data.docs;
+                    items = res.data;
                 }
                 else
                 {
