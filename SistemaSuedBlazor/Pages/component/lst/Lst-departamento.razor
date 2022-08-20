@@ -25,23 +25,22 @@
             </thead>
             <tbody>
                 @if (items.Count > 0)
-                    {
+                {
                     foreach (var item in items)
                     {
-                <tr>
-                    <td>01</td>
-                    <td>San Fernando</td>
-                    <td>Acción</td>
-                </tr>
-                   }
+                        <tr>
+                            <td>@item.codigo</td>
+                            <td>@item.descripcion</td>
+                            <td>Acción</td>
+                        </tr>
                     }
-
-                    else
-                    {
+                }
+                else
+                {
                     <tr>
-                    <td colspan="20">sin datos</td>
+                        <td colspan="20">sin datos</td>
                     </tr>
-                    }
+                }
             </tbody>
         </table>
     </div>

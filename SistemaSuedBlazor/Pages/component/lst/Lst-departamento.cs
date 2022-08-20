@@ -11,7 +11,6 @@ namespace SistemaSuedBlazor.Pages.component.lst
 
         protected override async Task OnInitializedAsync()
         {
-
             await this.LstDpto();
         }
 
@@ -20,7 +19,7 @@ namespace SistemaSuedBlazor.Pages.component.lst
             items = await DepartamentoService.LstDepartamentos(criterio);
             if (items == null)
             {
-               
+                items = new List<Departamento>();
             }
         }
 
