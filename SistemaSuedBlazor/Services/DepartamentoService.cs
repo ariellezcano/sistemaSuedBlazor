@@ -29,8 +29,7 @@ namespace SistemaSuedBlazor.Services
             {
                 var response = await http.GetStringAsync(url);
                 Console.WriteLine("respuesta {0}", response);
-                Result<Departamento> res = new Result<Departamento>();
-                res = JsonConvert.DeserializeObject<Result<Departamento>>(response);
+                Result<Departamento> res = JsonConvert.DeserializeObject<Result<Departamento>>(response);
 
                 if (res.code == "200")
                 {
