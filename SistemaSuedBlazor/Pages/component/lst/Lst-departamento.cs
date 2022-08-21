@@ -8,18 +8,18 @@ namespace SistemaSuedBlazor.Pages.component.lst
         string criterio = "";
 
         List<Departamento> items = new List<Departamento>();
-
         protected override async Task OnInitializedAsync()
         {
             await this.LstDpto();
         }
+
 
         private async Task LstDpto()
         {
             items = await DepartamentoService.LstDepartamentos(criterio);
             if (items == null)
             {
-                items = new List<Departamento>();
+               items = new List<Departamento>();
             }
         }
 

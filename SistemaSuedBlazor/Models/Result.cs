@@ -1,9 +1,9 @@
 ﻿namespace SistemaSuedBlazor.Models
 {
-    public class Result
+    public class Result<T>
     {
         public object dato;
-        public List<Departamento> data;
+        public List<T> data;
         public int totalPaginas;
         public int totalRegistros;
         public string code;
