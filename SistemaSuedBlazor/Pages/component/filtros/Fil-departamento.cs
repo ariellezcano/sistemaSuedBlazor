@@ -21,22 +21,7 @@ namespace SistemaSuedBlazor.Pages.component.filtros
             string estado = "";
         }
 
-        setPage(page, estado)
-        {
-            this.paginaActual = page;
-            if (estado == 'siguiente')
-            {
-                this.paginaSiguiente = this.paginaActual + 1;
-                this.paginaActual = this.paginaSiguiente;
-            }
-            if (estado == 'anterior')
-            {
-                this.paginaAnterior = this.paginaActual - 1;
-                this.paginaActual = this.paginaAnterior;
-            }
-            this.filter();
-        }
-
+       
         private async Task LstDpto()
         {
             items = await DepartamentoService.LstDepartamentos(criterio);
